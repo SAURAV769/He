@@ -2,87 +2,175 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Simple UI Website</title>
+  <title>Modern Shop</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
-    body {
+    :root {
+      --primary: #6c63ff;
+      --dark: #2b2d42;
+      --light: #f8f9fa;
+      --accent: #ff6b6b;
+    }
+
+    * {
       margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
       font-family: 'Segoe UI', sans-serif;
-      background: #f4f4f4;
-      color: #333;
+      background-color: var(--light);
+      color: var(--dark);
     }
 
     header {
-      background: #6200ea;
+      background-color: var(--primary);
       color: white;
-      padding: 1rem;
+      padding: 2rem 1rem;
       text-align: center;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
     }
 
     nav {
       display: flex;
       justify-content: center;
-      background: #3700b3;
+      gap: 2rem;
+      background-color: var(--dark);
+      padding: 1rem 0;
     }
 
     nav a {
-      padding: 1rem;
-      text-decoration: none;
       color: white;
+      text-decoration: none;
+      font-weight: 500;
+      position: relative;
+    }
+
+    nav a::after {
+      content: "";
+      display: block;
+      width: 0;
+      height: 2px;
+      background: var(--accent);
+      transition: width 0.3s;
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    .product-section {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 2rem;
+      padding: 2rem;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .product {
+      background: white;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s;
+    }
+
+    .product:hover {
+      transform: translateY(-5px);
+    }
+
+    .product img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .product-info {
+      padding: 1rem;
+      text-align: center;
+    }
+
+    .product-info h3 {
+      margin-bottom: 0.5rem;
+    }
+
+    .product-info .price {
+      color: var(--accent);
+      font-weight: bold;
+      margin: 0.5rem 0;
+    }
+
+    .product-info button {
+      background: var(--primary);
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+      cursor: pointer;
       transition: background 0.3s;
     }
 
-    nav a:hover {
-      background: #6200ea;
-    }
-
-    main {
-      padding: 2rem;
-      text-align: center;
-    }
-
-    .card {
-      background: white;
-      border-radius: 8px;
-      padding: 2rem;
-      max-width: 600px;
-      margin: 2rem auto;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    .product-info button:hover {
+      background: var(--dark);
     }
 
     footer {
-      background: #6200ea;
+      background-color: var(--primary);
       color: white;
       text-align: center;
       padding: 1rem;
-      position: fixed;
-      width: 100%;
-      bottom: 0;
+      margin-top: 2rem;
     }
   </style>
 </head>
 <body>
 
   <header>
-    <h1>My Simple Website</h1>
-    <p>Clean & Minimal UI Design</p>
+    <h1>Modern Shop</h1>
+    <p>Find the best deals here!</p>
   </header>
 
   <nav>
     <a href="#">Home</a>
-    <a href="#">About</a>
-    <a href="#">Contact</a>
+    <a href="#">Shop</a>
+    <a href="#">Cart</a>
+    <a href="#">Login</a>
   </nav>
 
-  <main>
-    <div class="card">
-      <h2>Welcome!</h2>
-      <p>This is a basic and responsive UI website template. You can customize the layout, colors, and content easily.</p>
+  <section class="product-section">
+    <div class="product">
+      <img src="https://via.placeholder.com/300x200" alt="Product 1">
+      <div class="product-info">
+        <h3>Cool Sneakers</h3>
+        <p class="price">₹999</p>
+        <button>Buy Now</button>
+      </div>
     </div>
-  </main>
+    <div class="product">
+      <img src="https://via.placeholder.com/300x200" alt="Product 2">
+      <div class="product-info">
+        <h3>Stylish Watch</h3>
+        <p class="price">₹1,499</p>
+        <button>Buy Now</button>
+      </div>
+    </div>
+    <div class="product">
+      <img src="https://via.placeholder.com/300x200" alt="Product 3">
+      <div class="product-info">
+        <h3>Wireless Earbuds</h3>
+        <p class="price">₹799</p>
+        <button>Buy Now</button>
+      </div>
+    </div>
+  </section>
 
   <footer>
-    &copy; 2025 Simple UI | Designed by Saurav
+    &copy; 2025 Modern Shop. All rights reserved.
   </footer>
 
 </body>
